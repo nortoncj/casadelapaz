@@ -601,6 +601,263 @@ a:focus-visible {
 }
 
 /* ============================================
+   About the House Section Styles
+   Add this CSS to your assets/css/style.css file
+   ============================================ */
+
+.about-house-section {
+    padding: var(--space-4xl) 0;
+    background-color: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Label (small badge above title) */
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: rgba(74, 144, 164, 0.1);
+    color: var(--peaceful-blue);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+}
+
+.section-label i {
+    font-size: 16px;
+}
+
+/* Main content wrapper - creates the photo + info layout */
+.house-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    margin-top: var(--space-2xl);
+}
+
+@media (min-width: 1024px) {
+    .house-content-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+    }
+}
+
+/* Photo Container */
+.house-image-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-medium);
+}
+
+.house-image-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(61, 61, 61, 0.15);
+}
+
+.house-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 400px;
+}
+
+/* Badge overlay on image */
+.image-overlay-badge {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+    background: linear-gradient(135deg, rgba(74, 144, 164, 0.95) 0%, rgba(139, 126, 116, 0.95) 100%);
+    color: var(--warm-white);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 600;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.image-overlay-badge i {
+    font-size: 20px;
+    color: var(--gentle-gold);
+}
+
+/* Information Container */
+.house-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.lead-text {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--charcoal-gray);
+    font-weight: 400;
+    margin-bottom: var(--space-md);
+}
+
+/* Features List */
+.house-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.feature-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    padding: var(--space-md);
+    background-color: rgba(248, 246, 243, 0.5);
+    border-left: 3px solid var(--gentle-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    transition: all var(--transition-medium);
+}
+
+.feature-item:hover {
+    background-color: #FFFFFF;
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--peaceful-blue) 0%, var(--info) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-white);
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(74, 144, 164, 0.25);
+}
+
+.feature-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--deep-brown);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-body);
+}
+
+.feature-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--charcoal-gray);
+    margin-bottom: 0;
+}
+
+/* Quote Callout */
+.house-quote-callout {
+    background-color: rgba(156, 175, 136, 0.1);
+    border-left: 4px solid var(--soft-sage);
+    padding: var(--space-lg);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    position: relative;
+    margin: var(--space-lg) 0;
+}
+
+.house-quote-callout i {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    font-size: 24px;
+    color: var(--soft-sage);
+    opacity: 0.5;
+}
+
+.quote-text {
+    font-family: var(--font-accent);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--charcoal-gray);
+    padding-left: var(--space-2xl);
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Button in this section */
+.house-info-container .btn {
+    align-self: flex-start;
+    margin-top: var(--space-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .about-house-section {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .house-image {
+        min-height: 300px;
+    }
+    
+    .image-overlay-badge {
+        bottom: var(--space-md);
+        left: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        font-size: 14px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .quote-text {
+        padding-left: 0;
+        font-size: 16px;
+    }
+    
+    .house-quote-callout i {
+        position: static;
+        display: block;
+        margin-bottom: var(--space-sm);
+    }
+}
+
+/* Animation on scroll (optional enhancement) */
+@media (prefers-reduced-motion: no-preference) {
+    .house-image-container,
+    .house-info-container {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .house-info-container {
+        animation-delay: 0.2s;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+
+/* ============================================
    Process Section
    ============================================ */
 .process-section {
@@ -960,6 +1217,7 @@ a:focus-visible {
     
     .who-we-serve-section,
     .why-choose-section,
+    .about-house-section,
     .process-section,
     .cta-section {
         padding: var(--space-2xl) 0;
